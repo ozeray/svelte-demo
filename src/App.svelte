@@ -1,27 +1,26 @@
 <script>
-  import logo from './assets/svelte.png'
-  import Counter from './lib/Counter.svelte'
+  import Foot from "./main/Foot.svelte";
+  import Head from "./main/Head.svelte";
+  // import SonucSekmeler from "./hasta-sonuc/SonucSekmeler.svelte";
+  import Login from "./main/Login.svelte"; 
 </script>
 
-<main>
-  <img src={logo} alt="Svelte Logo" />
-  <h1>Hello world!</h1>
+<Head />
 
-  <Counter />
-
-  <p>
-    Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte
-    apps.
-  </p>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme">SvelteKit</a> for
-    the officially supported framework, also powered by Vite!
-  </p>
+<main class="flex-shrink-0">
+  <div class="container">
+    <Login />    
+    <!-- <SonucSekmeler /> -->
+  </div>  
 </main>
 
+<Foot />
+
 <style>
-  :root {
+  :global(body) {
+    padding-top: 65px;
+  }
+   /* :root {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
       Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
@@ -61,5 +60,5 @@
     p {
       max-width: none;
     }
-  }
+  } */
 </style>
