@@ -10,7 +10,11 @@ export default {
             dogumTarihi: 'Doğum Tarihi'
         },
         validasyon: {
-            sadeceRakam: 'Lütfen sadece rakam kullanınız'
+            sadeceRakam: 'Lütfen sadece rakam kullanınız',
+            robotDegil: 'Lütfen robot olmadığınızı doğrulayınız'
+        },
+        oturum: {
+            oturumAc: 'Oturum Aç'
         }
     },
     en: {
@@ -24,7 +28,11 @@ export default {
             dogumTarihi: 'Birth Date'
         },
         validasyon: {
-            sadeceRakam: 'Only numeric characters'
+            sadeceRakam: 'Only numeric characters',
+            robotDegil: 'Please verify that you\'re not a robot'
+        },
+        oturum: {
+            oturumAc: 'Login'
         }
     }
 }

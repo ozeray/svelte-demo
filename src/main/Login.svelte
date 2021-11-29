@@ -68,10 +68,10 @@
             value=""
             type="hidden"
             name="recaptval"
-            data-error="Lütfen robot olmadığınızı doğrulayınız" /> 
+            data-error={$t('validasyon.robotDegil')} /> 
         <div class="help-block with-errors" />
     </div>
-    <button type="submit" class="btn btn-primary">Oturum Aç</button>
+    <button type="submit" class="btn btn-primary">{$t('oturum.oturumAc')}</button>
 </form>
 
 <style>
