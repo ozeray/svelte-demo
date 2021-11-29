@@ -1,26 +1,22 @@
 <svelte:head>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?hl={$locale}" async defer></script>
 </svelte:head>
 
 <script>
+    import { locale, t } from '../i18n/i18n';
     import { onMount, onDestroy } from 'svelte';
 
     const verifyUser = function(response) {
-        console.log("Verified");
+        // console.log("Verified");
         let element = document.querySelector("[data-recaptcha='true']");
-        console.log(element);
-        element.value = response
-        element.dispatchEvent(new Event("change"));
-        console.log(element.value);
-        // document.getElementById("login-form").submit();
+        element.value = response;
+        // element.dispatchEvent(new Event("change"));
     }
 
     const recaptchaExpired = function() {
         let element = document.querySelector("[data-recaptcha='true']");
-        console.log(element);
         element.value = ""
-        element.dispatchEvent(new Event("change"));
-        console.log(element.value);
+        // element.dispatchEvent(new Event("change"));
     }
 
     onMount(() => {
@@ -36,7 +32,7 @@
 
 <form id="login-form" method="get" action="/yardim">
     <div class="mb-3">
-        <label for="tckn" class="form-label">TC Kimlik Numarası</label>
+        <label for="tckn" class="form-label">{$t('genel.tckn')}</label>
         <input
         required
             type="number"
@@ -44,14 +40,15 @@
             id="tckn"
             aria-describedby="tcknHelp"
         />
-        <div id="tcknHelp" class="form-text">
-            Lütfen sadece rakam kullanınız
+        <div id="tcknHelp" class="mt-n1 form-text">
+            <small>{$t('validasyon.sadeceRakam')}</small>
         </div>
     </div>
     <div class="mb-3">
-        <label for="dogumTarihi" class="form-label">Doğum Tarihi</label>
+        <label for="dogumTarihi" class="form-label">{$t('kisi.dogumTarihi')}</label>
         <input
             type="date"
+            lang="en_US"
             class="form-control"
             id="dogumTarihi"
         />
@@ -76,3 +73,10 @@
     </div>
     <button type="submit" class="btn btn-primary">Oturum Aç</button>
 </form>
+
+<style>
+    form#login-form {
+        width: 303px;
+        margin: auto;
+    }
+</style>
